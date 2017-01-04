@@ -11,7 +11,7 @@
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 
 // Window dimensions
-const GLuint WIDTH = 800, HEIGHT = 600;
+const GLuint WIDTH = 800, HEIGHT = 800;
 
 // The MAIN function, from here we start the application and run the game loop
 int main()
@@ -122,6 +122,12 @@ int main()
 
 		// Activate shader
 		ourShader.Use();
+
+		// set uniform
+		GLint fWidthLoc = glGetUniformLocation(ourShader.Program, "fWidth");
+		glUniform1f(fWidthLoc, WIDTH/2.0);
+		GLint fHeightLoc = glGetUniformLocation(ourShader.Program, "fHeight");
+		glUniform1f(fHeightLoc, HEIGHT/2.0);
 
 		// Draw container
 		glBindVertexArray(VAO);
