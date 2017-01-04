@@ -51,5 +51,6 @@ vec4 BiCubic(sampler2D textureSampler, vec2 TexCoord)
 void main()
 {
 	vec4 Data = BiCubic(ourTexture1,TexCoord);
+	//vec4 Data = texture2D(ourTexture1,TexCoord);
     color = Data;
 }
